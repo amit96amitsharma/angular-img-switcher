@@ -1,0 +1,15 @@
+<div class="row customMargin">
+    <div class="col-2" *ngFor="let section of sections; let sectionIndex = index">
+        <div class="imgSection">
+            <i *ngIf="section.img" class="fa fa-close" (click)="remove(sectionIndex)"></i>
+            <label [attr.for]="section.inputId">
+                <img *ngIf="section.img" class="imageSet" [src]="section.img">
+                <div *ngIf="!section.img" calss="row">
+                    <p class="changeImage">Click to upload</p>
+                </div>
+            </label>
+            <input alt="Image" class="file-input" accept="{{types}}" [attr.id]="section.inputId" type="file"
+                (change)="onFileSelected($event,section)">
+        </div>
+    </div>
+</div>
